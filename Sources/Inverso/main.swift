@@ -2,7 +2,7 @@ import Darwin
 import Foundation
 import InversoKit
 
-let inversoVersion = "0.1.0"
+let inversoVersion = "0.2.0"
 
 func currentExecutablePath() -> String {
     var size: UInt32 = 0

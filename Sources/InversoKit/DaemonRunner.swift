@@ -15,8 +15,9 @@ public final class DaemonRunner {
 
     private func startOrRetry() {
         if !Accessibility.isTrusted {
+            _ = Accessibility.requestPrompt()
             if !reportedMissingPermission {
-                FileHandle.standardError.write(Data("inverso: Accessibility permission is missing; run `inverso permission` if you want macOS to show the prompt.\n".utf8))
+                FileHandle.standardError.write(Data("inverso: Accessibility permission is missing; waiting for macOS approval.\n".utf8))
                 reportedMissingPermission = true
             }
             scheduleRetry()
